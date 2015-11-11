@@ -61,7 +61,8 @@ namespace audio_transport
           g_object_set( G_OBJECT(_sink), "location", dst_type.c_str(), NULL);
         }
 
-        _source = gst_element_factory_make("alsasrc", "source");
+        _source = gst_element_factory_make("pulsesrc", "source");
+        //_source = gst_element_factory_make("alsasrc", "source");  //emoters modify 11/3/15 (see http://gstreamer.freedesktop.org/documentation/plugins.html)
         _convert = gst_element_factory_make("audioconvert", "convert");
 
         gboolean link_ok;
